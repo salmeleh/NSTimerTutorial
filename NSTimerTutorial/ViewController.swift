@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     
     var timer = Timer()
     var counter = 0.00
-    var refreshInterval = 0.05
+    var refreshInterval = 0.1
     
     
     
@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        countingLabel.text = String(counter)
+        countingLabel.text = timeString(time: counter)
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,16 +46,16 @@ class ViewController: UIViewController {
     @IBAction func clearButton(_ sender: Any) {
         timer.invalidate()
         counter = 0
-        countingLabel.text = String(counter)
+        countingLabel.text = timeString(time: counter)
     }
     
     
     func updateCounter() {
-        countingLabel.text = String(format: "%.2f", counter)
+        countingLabel.text = timeString(time: counter)
         counter += refreshInterval
     }
     
-    func timeString(time:TimeInterval) -> String {
+    func timeString(time: Double) -> String {
         let hours = Int(time) / 3600
         let minutes = Int(time) / 60 % 60
         let seconds = Int(time) % 60
