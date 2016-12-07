@@ -35,6 +35,12 @@ class ViewController: UIViewController {
     }
 
 
+    @IBAction func startBothButton(_ sender: Any) {
+        if !timer.isValid && !timer2.isValid {
+            startButton(UIButton.self)
+            startButton2(UIButton.self)
+        }
+    }
     
     @IBAction func startButton(_ sender: Any) {
         //timer = Timer.scheduledTimer(timeInterval: refreshInterval, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
@@ -53,7 +59,7 @@ class ViewController: UIViewController {
         
         timer2 = Timer.scheduledTimer(timeInterval: refreshInterval, target: self, selector: #selector(updateTimer2), userInfo: nil, repeats: true)
         
-        startButton(UIButton)
+        startButton(UIButton.self)
     }
     
     

@@ -22,8 +22,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wm8-ef-Uo6">
-                                <rect key="frame" x="133" y="462" width="108" height="30"/>
-                                <state key="normal" title="Start 1 / Reset 1"/>
+                                <rect key="frame" x="162" y="462" width="50" height="30"/>
+                                <state key="normal" title="Reset 1"/>
                                 <connections>
                                     <action selector="startButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oNu-DZ-EEv"/>
                                 </connections>
@@ -35,8 +35,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bmr-0c-iuQ">
-                                <rect key="frame" x="120" y="516" width="135" height="30"/>
-                                <state key="normal" title="Start 2 / Reset Both"/>
+                                <rect key="frame" x="150" y="516" width="75" height="30"/>
+                                <state key="normal" title="Reset Both"/>
                                 <connections>
                                     <action selector="startButton2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3bx-CE-9rm"/>
                                 </connections>
@@ -47,6 +47,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v40-n3-kUg">
+                                <rect key="frame" x="152" y="202" width="70" height="30"/>
+                                <state key="normal" title="Start Both"/>
+                                <connections>
+                                    <action selector="startBothButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hJo-Rz-cOe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -54,6 +61,8 @@
                             <constraint firstItem="0r3-bu-J9x" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="4mJ-zw-dsl"/>
                             <constraint firstItem="0r3-bu-J9x" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8D4-EB-Zf2"/>
                             <constraint firstItem="Bmr-0c-iuQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8IH-yY-Yc5"/>
+                            <constraint firstItem="v40-n3-kUg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Jbr-fx-kDG"/>
+                            <constraint firstItem="0r3-bu-J9x" firstAttribute="top" secondItem="v40-n3-kUg" secondAttribute="bottom" constant="91" id="KH5-y4-fyO"/>
                             <constraint firstItem="uso-Sz-rRx" firstAttribute="top" secondItem="0r3-bu-J9x" secondAttribute="bottom" constant="32" id="ebz-Pg-ob3"/>
                             <constraint firstItem="uso-Sz-rRx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="f4e-n0-TJA"/>
                             <constraint firstItem="Bmr-0c-iuQ" firstAttribute="top" secondItem="wm8-ef-Uo6" secondAttribute="bottom" constant="24" id="p4u-TQ-8Dh"/>
