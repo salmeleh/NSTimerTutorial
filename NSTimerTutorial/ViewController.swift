@@ -12,13 +12,21 @@ class ViewController: UIViewController {
 
 
     @IBOutlet weak var countingLabel: UILabel!
+    @IBOutlet weak var timer2Label: UILabel!
     
     var timer = Timer()
-    var counter = 0.0
+    var timer2 = Timer()
+
+//    var counter = 0.0
     var refreshInterval = 0.1
     
+    
     var startTime = TimeInterval()
+    var startTime2 = TimeInterval()
+    
     var elapsedTime = 0.0
+    var elapsedTime2 = 0.0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,41 +34,43 @@ class ViewController: UIViewController {
         //countingLabel.text = toTimeString(time: counter)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
     
     @IBAction func startButton(_ sender: Any) {
         //timer = Timer.scheduledTimer(timeInterval: refreshInterval, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
         
-        if !timer.isValid {
-            
+      //  if !timer.isValid {
             startTime = NSDate.timeIntervalSinceReferenceDate
             
             timer = Timer.scheduledTimer(timeInterval: refreshInterval, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
-        }
+      //  }
         
     }
 
 
-    
-    
-    @IBAction func resetButton(_ sender: Any) {
-    
-        timer.invalidate()
-        countingLabel.text = "00:00:00.00"
+    @IBAction func startButton2(_ sender: Any) {
+        startTime2 = NSDate.timeIntervalSinceReferenceDate
         
-        //counter = 0
-        //countingLabel.text = toTimeString(time: counter)
+        timer2 = Timer.scheduledTimer(timeInterval: refreshInterval, target: self, selector: #selector(updateTimer2), userInfo: nil, repeats: true)
+        
+        startButton(UIButton)
     }
     
     
-    func updateCounter() {
-        countingLabel.text = toTimeString(time: counter)
-        counter += refreshInterval
-    }
+//    @IBAction func resetButton(_ sender: Any) {
+//    
+//        timer.invalidate()
+//        countingLabel.text = "00:00:00.00"
+//        
+//        //counter = 0
+//        //countingLabel.text = toTimeString(time: counter)
+//    }
+    
+    
+//    func updateCounter() {
+//        countingLabel.text = toTimeString(time: counter)
+//        counter += refreshInterval
+//    }
     
     func updateTimer() {
         let currentTime = NSDate.timeIntervalSinceReferenceDate
@@ -82,13 +92,33 @@ class ViewController: UIViewController {
         countingLabel.text = timeString
     }
     
-    
-    func toTimeString(time: Double) -> String {
-        let hours = Int(time) / 3600
-        let minutes = Int(time) / 60 % 60
-        let seconds = Int(time) % 60
-        return String(format:"%02i:%02i:%02i", hours, minutes, seconds)
+    func updateTimer2() {
+        let currentTime2 = NSDate.timeIntervalSinceReferenceDate
+        elapsedTime2 = currentTime2 - startTime2
+        
+        let hours2 = UInt8(elapsedTime2 / 3600.0)
+        elapsedTime2 -= (TimeInterval(hours2) * 3600)
+        
+        let minutes2 = UInt8(elapsedTime2 / 60.0)
+        elapsedTime2 -= (TimeInterval(minutes2) * 60)
+        
+        let seconds2 = UInt8(elapsedTime2)
+        elapsedTime2 -= TimeInterval(seconds2)
+        
+        let fraction2 = UInt8(elapsedTime2 * 100)
+        
+        let timeString = String(format:"%02i:%02i:%02i.%02i", hours2, minutes2, seconds2, fraction2)
+        
+        timer2Label.text = timeString
     }
+    
+    
+//    func toTimeString(time: Double) -> String {
+//        let hours = Int(time) / 3600
+//        let minutes = Int(time) / 60 % 60
+//        let seconds = Int(time) % 60
+//        return String(format:"%02i:%02i:%02i", hours, minutes, seconds)
+//    }
     
 }
 
