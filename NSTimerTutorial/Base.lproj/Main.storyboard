@@ -73,6 +73,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="countingLabel" destination="0r3-bu-J9x" id="vCc-Jx-FuT"/>
+                        <outlet property="startButton" destination="v40-n3-kUg" id="cfF-rX-vIP"/>
                         <outlet property="timer2Label" destination="uso-Sz-rRx" id="y7U-4S-bHP"/>
                     </connections>
                 </viewController>

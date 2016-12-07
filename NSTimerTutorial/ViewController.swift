@@ -13,6 +13,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var countingLabel: UILabel!
     @IBOutlet weak var timer2Label: UILabel!
+    @IBOutlet weak var startButton: UIButton!
     
     var timer = Timer()
     var timer2 = Timer()
@@ -31,15 +32,19 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        startButton.isHidden = false
         //countingLabel.text = toTimeString(time: counter)
     }
 
 
     @IBAction func startBothButton(_ sender: Any) {
-        if !timer.isValid && !timer2.isValid {
+//        if !timer.isValid && !timer2.isValid {
             startButton(UIButton.self)
             startButton2(UIButton.self)
-        }
+        //}
+        
+        startButton.isHidden = true
+        
     }
     
     @IBAction func startButton(_ sender: Any) {
